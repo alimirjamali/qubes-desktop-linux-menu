@@ -113,6 +113,7 @@ class AppMenu(Gtk.Application):
         self.highlight_tag: Optional[str] = None
 
         self.tasks = []
+        self.appmenu_position: str = 'mouse'
 
     def _add_cli_options(self):
         self.add_main_option(
@@ -199,6 +200,7 @@ class AppMenu(Gtk.Application):
         """
         Helper function to reposition Appmenu based on 'menu_position' feature
         """
+        assert self.main_window
         match self.appmenu_position:
             case 'top-left':
                 self.main_window.move(0, 0)
